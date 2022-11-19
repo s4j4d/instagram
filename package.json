@@ -1,0 +1,16 @@
+{
+  "name": "instagram",
+  "version": "1.0.0",
+  "description": "instagram project with nest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sajad Masjoodi",
+  "license": "MIT",
+  "dependencies": {
+    "@nestjs/cli": "^9.1.5",
+    "@nestjs/mongoose": "^9.2.1",
+    "mongoose": "^6.7.2"
+  }
+}

@@ -26,16 +26,17 @@ export class PostClass {
     tagPeople: People[]
 
     @IsEmpty()
-    @Prop({ default: 0 })
-    likes: number
+    @Prop([{ type: mongoose.Types.ObjectId, ref: 'User'}])
+    likes: string[]
 
     @IsOptional()
     @Prop({ type: mongoose.Types.ObjectId, ref: 'User' , required:true })
-    userId
+    userId : string
 
     @IsEmpty()
     @Prop(raw([{
-        comment: { content: { type: String }, user: { type: mongoose.Types.ObjectId, ref: 'User' }, replys: [{ reply: { type: String, user: { type: mongoose.Types.ObjectId, ref: 'User' } } }] }
+        text: { type: String , required:true}, user: { type: mongoose.Types.ObjectId, ref: 'User' , required:true},likes:[{ type: mongoose.Types.ObjectId, ref: 'User'}],
+         replies: [{ text:{type: String , required:true}, likes:[{ type: mongoose.Types.ObjectId, ref: 'User'}],user: { type: mongoose.Types.ObjectId, ref: 'User' , required:true} } ] 
     }]))
     comments
 }
